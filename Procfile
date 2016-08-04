@@ -1,1 +1,1 @@
-web: java -jar .\target\address-book-api-1.0-SNAPSHOT.jar server
+web: java -jar ./target/address-book-api-1.0-SNAPSHOT.jar server
