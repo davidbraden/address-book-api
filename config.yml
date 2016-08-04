@@ -1,0 +1,6 @@
+server:
+  type: simple
+  adminContextPath: /admin
+  connector:
+    type: http 
+    port: 5000

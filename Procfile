@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Ddw.http.port=$PORT -Ddw.http.adminPort=$PORT -jar ./target/address-book-api-1.0-SNAPSHOT.jar server
+web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar ./target/address-book-api-1.0-SNAPSHOT.jar server ./config.yml
