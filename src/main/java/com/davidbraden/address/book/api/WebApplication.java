@@ -1,5 +1,6 @@
 package com.davidbraden.address.book.api;
 
+import com.davidbraden.address.book.api.controllers.AddressBookController;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -22,6 +23,7 @@ public class WebApplication extends Application<WebConfiguration> {
     @Override
     public void run(final WebConfiguration configuration,
                     final Environment environment) {
+        environment.jersey().register(new AddressBookController());
     }
 
 }
