@@ -9,6 +9,10 @@ public class Address {
     private String email;
     private String company;
 
+
+    public Address() {
+    }
+
     public Address(int id, String firstName, String lastName, String email, String company) {
         this.id = id;
         this.firstName = firstName;
