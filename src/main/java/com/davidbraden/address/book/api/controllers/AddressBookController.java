@@ -2,33 +2,47 @@ package com.davidbraden.address.book.api.controllers;
 
 
 import com.davidbraden.address.book.api.models.Address;
-import com.google.common.collect.Lists;
+import com.davidbraden.address.book.api.services.FileAddressStore;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 @Path("/address")
 @Produces(MediaType.APPLICATION_JSON)
 public class AddressBookController {
 
-    private List<Address> addresses = Lists.newArrayList(new Address(1, "david", "braden", "david.braden@gmail.com", "Skyscanner"));
+    private FileAddressStore addressStore;
 
-
-    @GET
-    @Path("/list")
-    public List<Address> listAddresses() {
-        return addresses;
+    public AddressBookController(FileAddressStore addressStore) {
+        this.addressStore = addressStore;
     }
 
     @GET
-    @Path("/list/{id}")
+    @Path("/all")
+    public List<Address> listAddresses() {
+        return addressStore.listAddresses();
+    }
+
+    @GET
+    @Path("/{id}")
     public Address getAddress(@PathParam("id") int id) {
-        for(Address address:addresses) {
+        for(Address address:addressStore.listAddresses()) {
             if (address.getId() == id)
                 return address;
         }
         throw new NotFoundException();
+    }
+
+    @POST
+    @Path("/")
+    public Address addAddress(Address address) throws Exception {
+        return addressStore.addAddress(address);
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public void deleteAddress(@PathParam("id") int id) throws Exception {
+        addressStore.deleteAddress(getAddress(id));
     }
 }
