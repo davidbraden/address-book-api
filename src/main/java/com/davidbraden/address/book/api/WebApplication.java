@@ -17,13 +17,11 @@ public class WebApplication extends Application<WebConfiguration> {
 
     @Override
     public void initialize(final Bootstrap<WebConfiguration> bootstrap) {
-        // TODO: application initialization
     }
 
     @Override
     public void run(final WebConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
     }
 
 }
