@@ -1,7 +1,7 @@
 package com.davidbraden.address.book.api.models;
 
 
-public class Address {
+public class Person {
 
     private int id;
     private String firstName;
@@ -10,10 +10,10 @@ public class Address {
     private String company;
 
 
-    public Address() {
+    public Person() {
     }
 
-    public Address(int id, String firstName, String lastName, String email, String company) {
+    public Person(int id, String firstName, String lastName, String email, String company) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
